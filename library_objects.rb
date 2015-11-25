@@ -43,7 +43,7 @@ class Library
 
     def list_people
       if people.empty?
-        "Nobody likes this library :("
+       return "Nobody likes this library :("
       else
         people_strings = @people.map do |key, person|
           person.fancy_string
@@ -53,7 +53,7 @@ class Library
     end
 
     def list_borrowed
-      borrower_people = @people.select {|key, person| person.account.any? }.compact
+      borrower_people = @people.select {|key, person| person.account.any? }
       #define the set of borrowed books, pass this through library.list_books
       # binding.pry
       borrowed_books = {}
